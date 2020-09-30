@@ -41,6 +41,7 @@ let skeleton = sprites.create(img`
     . . . 1 1 1 1 1 1 1 1 1 1 1 . .
     . . . . . . . . . . . . . . . .
 `)
+skeleton.setPosition(10, 153)
 controller.moveSprite(skeleton, null)
 scene.cameraFollowSprite(skeleton)
 scene.setTileMap(img`

@@ -40,6 +40,7 @@ skeleton = sprites.create(img("""
     . . . 1 1 1 1 1 1 1 1 1 1 1 . .
     . . . . . . . . . . . . . . . .
 """))
+skeleton.set_position(10, 153)
 controller.move_sprite(skeleton, None)
 scene.camera_follow_sprite(skeleton)
 scene.set_tile_map(img("""
