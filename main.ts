@@ -40,7 +40,7 @@ let skeleton = sprites.create(img`
     . . . 1 . . . . . . . . . 1 . .
     . . . 1 1 1 1 1 1 1 1 1 1 1 . .
     . . . . . . . . . . . . . . . .
-`)
+`, SpriteKind.Player)
 skeleton.setPosition(10, 153)
 controller.moveSprite(skeleton, 60, 0)
 scene.cameraFollowSprite(skeleton)
@@ -188,12 +188,15 @@ game.onUpdate(function on_update() {
     }
     
     if (skeleton.isHittingTile(CollisionDirection.Right)) {
-        if (skeleton.x < 400) {
-            skeleton.setPosition(420, 160)
-        } else {
-            skeleton.setPosition(850, 140)
-        }
         
+    }
+    
+})
+scene.onHitTile(SpriteKind.Player, 11, function on_hit_tile(sprite: Sprite) {
+    if (skeleton.x < 400) {
+        skeleton.setPosition(420, 160)
+    } else {
+        skeleton.setPosition(850, 140)
     }
     
 })

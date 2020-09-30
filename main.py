@@ -39,7 +39,7 @@ skeleton = sprites.create(img("""
     . . . 1 . . . . . . . . . 1 . .
     . . . 1 1 1 1 1 1 1 1 1 1 1 . .
     . . . . . . . . . . . . . . . .
-"""))
+"""), SpriteKind.player)
 skeleton.set_position(10, 153)
 controller.move_sprite(skeleton, 60, 0)
 scene.camera_follow_sprite(skeleton)
@@ -184,8 +184,12 @@ def on_update():
     if skeleton.is_hitting_tile(CollisionDirection.BOTTOM):
         doublejump = True
     if skeleton.is_hitting_tile(CollisionDirection.RIGHT):
-        if skeleton.x < 400:
-            skeleton.set_position(420, 160)
-        else: 
-            skeleton.set_position(850, 140)
+        pass
 game.on_update(on_update)
+
+def on_hit_tile(sprite):
+    if skeleton.x < 400:
+        skeleton.set_position(420, 160)
+    else: 
+        skeleton.set_position(850, 140)
+scene.on_hit_tile(SpriteKind.player, 11, on_hit_tile)
