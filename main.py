@@ -85,12 +85,13 @@ doublejump = True
 skeleton.ay = 100
 def jump():
     global doublejump
-    skeleton.vy = -50
-    doublejump = skeleton.is_hitting_tile(CollisionDirection.TOP)
+    if doublejump:
+        skeleton.vy = -50
+        doublejump = skeleton.is_hitting_tile(CollisionDirection.BOTTOM)
 controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
 
 def on_update():
     global doublejump
-    if skeleton.is_hitting_tile(CollisionDirection.TOP):
+    if skeleton.is_hitting_tile(CollisionDirection.BOTTOM):
         doublejump = True
 game.on_update(on_update)

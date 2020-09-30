@@ -85,12 +85,15 @@ let doublejump = true
 skeleton.ay = 100
 controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     
-    skeleton.vy = -50
-    doublejump = skeleton.isHittingTile(CollisionDirection.Top)
+    if (doublejump) {
+        skeleton.vy = -50
+        doublejump = skeleton.isHittingTile(CollisionDirection.Bottom)
+    }
+    
 })
 game.onUpdate(function on_update() {
     
-    if (skeleton.isHittingTile(CollisionDirection.Top)) {
+    if (skeleton.isHittingTile(CollisionDirection.Bottom)) {
         doublejump = true
     }
     
