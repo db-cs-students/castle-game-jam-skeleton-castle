@@ -4,6 +4,7 @@ Creators: Emily and Jaydah
 Description: Skeleton avoids humans trying to get home
 
  */
+scene.setBackgroundColor(9)
 let human = sprites.create(img`
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -40,6 +41,8 @@ let skeleton = sprites.create(img`
     . . . 1 1 1 1 1 1 1 1 1 1 1 . .
     . . . . . . . . . . . . . . . .
 `)
+controller.moveSprite(skeleton, null)
+scene.cameraFollowSprite(skeleton)
 scene.setTileMap(img`
     ................f......................f............................
     ................f......................f............................
@@ -58,9 +61,3 @@ scene.setTileMap(img`
     eeeeeeeeeeeeeeeef......................feeeeeeeeeeeeeeeeeeeeeeeeeeee
     eeeeeeeeeeeeeeeef2222222222222222222222feeeeeeeeeeeeeeeeeeeeeeeeeeee
 `)
-/** 
-def move_sprite_right():
-    skeleton.vx = 10
-controller.A.on_event(ControllerButtonEvent.PRESSED, move_sprite_right)
-
- */

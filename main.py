@@ -3,6 +3,7 @@ Title: Go Home
 Creators: Emily and Jaydah
 Description: Skeleton avoids humans trying to get home
 """
+scene.set_background_color(9)
 human = sprites.create(img("""
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -39,6 +40,8 @@ skeleton = sprites.create(img("""
     . . . 1 1 1 1 1 1 1 1 1 1 1 . .
     . . . . . . . . . . . . . . . .
 """))
+controller.move_sprite(skeleton, None)
+scene.camera_follow_sprite(skeleton)
 scene.set_tile_map(img("""
     ................f......................f............................
     ................f......................f............................
@@ -57,9 +60,3 @@ scene.set_tile_map(img("""
     eeeeeeeeeeeeeeeef......................feeeeeeeeeeeeeeeeeeeeeeeeeeee
     eeeeeeeeeeeeeeeef2222222222222222222222feeeeeeeeeeeeeeeeeeeeeeeeeeee
 """))
-
-"""
-def move_sprite_right():
-    skeleton.vx = 10
-controller.A.on_event(ControllerButtonEvent.PRESSED, move_sprite_right)
-"""
