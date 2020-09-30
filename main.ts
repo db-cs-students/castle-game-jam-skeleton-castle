@@ -176,7 +176,7 @@ skeleton.ay = 100
 controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     
     if (doublejump) {
-        skeleton.vy = -50
+        skeleton.vy = -60
         doublejump = skeleton.isHittingTile(CollisionDirection.Bottom)
     }
     
@@ -187,16 +187,20 @@ game.onUpdate(function on_update() {
         doublejump = true
     }
     
-    if (skeleton.isHittingTile(CollisionDirection.Right)) {
-        
-    }
-    
 })
 scene.onHitTile(SpriteKind.Player, 11, function on_hit_tile(sprite: Sprite) {
     if (skeleton.x < 400) {
         skeleton.setPosition(420, 160)
+        scene.setBackgroundColor(15)
     } else {
         skeleton.setPosition(850, 140)
+        scene.setBackgroundColor(9)
     }
     
+})
+scene.onHitTile(SpriteKind.Player, 2, function Lava(sprite: Sprite) {
+    game.over()
+})
+scene.onHitTile(SpriteKind.Player, 4, function castle(sprite: Sprite) {
+    game.over()
 })

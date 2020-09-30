@@ -175,7 +175,7 @@ skeleton.ay = 100
 def jump():
     global doublejump
     if doublejump:
-        skeleton.vy = -50
+        skeleton.vy = -60
         doublejump = skeleton.is_hitting_tile(CollisionDirection.BOTTOM)
 controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
 
@@ -183,13 +183,21 @@ def on_update():
     global doublejump
     if skeleton.is_hitting_tile(CollisionDirection.BOTTOM):
         doublejump = True
-    if skeleton.is_hitting_tile(CollisionDirection.RIGHT):
-        pass
 game.on_update(on_update)
 
 def on_hit_tile(sprite):
     if skeleton.x < 400:
         skeleton.set_position(420, 160)
+        scene.set_background_color(15)
     else: 
         skeleton.set_position(850, 140)
+        scene.set_background_color(9)
 scene.on_hit_tile(SpriteKind.player, 11, on_hit_tile)
+
+def Lava(sprite):
+    game.over()
+scene.on_hit_tile(SpriteKind.player, 2, Lava)
+
+def castle(sprite):
+    game.over()
+scene.on_hit_tile(SpriteKind.player, 4, castle)
