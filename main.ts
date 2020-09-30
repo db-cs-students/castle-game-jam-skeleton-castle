@@ -45,22 +45,22 @@ skeleton.setPosition(10, 153)
 controller.moveSprite(skeleton, 60, 0)
 scene.cameraFollowSprite(skeleton)
 scene.setTileMap(img`
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f..........................4.
-    ...............bf......................f..........................4.
-    7777777777777777f.....................5f7777777777777777777777777777
-    eeeeeeeeeeeeeeeef.......accc.......ccccfeeeeeeeeeeeeeeeeeeeeeeeeeeee
-    eeeeeeeeeeeeeeeef.ccccc......ccccc.....feeeeeeeeeeeeeeeeeeeeeeeeeeee
-    eeeeeeeeeeeeeeeef......................feeeeeeeeeeeeeeeeeeeeeeeeeeee
-    eeeeeeeeeeeeeeeef......................feeeeeeeeeeeeeeeeeeeeeeeeeeee
-    eeeeeeeeeeeeeeeef2222222222222222222222feeeeeeeeeeeeeeeeeeeeeeeeeeee
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999.............4.
+    ...............b.999ffff.....................ffff9999.............4.
+    77777777777777777777ffff..................b.cffff7777377777777777777
+    eeeeeeeeeeeeeeeeeeeeffff..3cccc.......ccccc..ffffeeeeeeeeeeeeeeeeeee
+    eeeeeeeeeeeeeeeeeeeeffff........ccccc........ffffeeeeeeeeeeeeeeeeeee
+    eeeeeeeeeeeeeeeeeeeeffff.....................ffffeeeeeeeeeeeeeeeeeee
+    eeeeeeeeeeeeeeeeeeeeffff.....................ffffeeeeeeeeeeeeeeeeeee
+    eeeeeeeeeeeeeeeeeeeeffff222222222222222222222ffffeeeeeeeeeeeeeeeeeee
 `)
 scene.setTile(7, img`
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
@@ -80,6 +80,96 @@ scene.setTile(7, img`
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
 `, true)
+scene.setTile(11, img`
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+`, true)
+scene.setTile(9, img`
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+`, true)
+scene.setTile(3, img`
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+`, true)
+scene.setTile(12, img`
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+`, true)
+scene.setTile(2, img`
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+`, true)
 // jumping
 let doublejump = true
 skeleton.ay = 100
@@ -95,6 +185,15 @@ game.onUpdate(function on_update() {
     
     if (skeleton.isHittingTile(CollisionDirection.Bottom)) {
         doublejump = true
+    }
+    
+    if (skeleton.isHittingTile(CollisionDirection.Right)) {
+        if (skeleton.x < 400) {
+            skeleton.setPosition(420, 160)
+        } else {
+            skeleton.setPosition(850, 140)
+        }
+        
     }
     
 })

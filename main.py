@@ -44,22 +44,22 @@ skeleton.set_position(10, 153)
 controller.move_sprite(skeleton, 60, 0)
 scene.camera_follow_sprite(skeleton)
 scene.set_tile_map(img("""
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f............................
-    ................f......................f..........................4.
-    ...............bf......................f..........................4.
-    7777777777777777f.....................5f7777777777777777777777777777
-    eeeeeeeeeeeeeeeef.......accc.......ccccfeeeeeeeeeeeeeeeeeeeeeeeeeeee
-    eeeeeeeeeeeeeeeef.ccccc......ccccc.....feeeeeeeeeeeeeeeeeeeeeeeeeeee
-    eeeeeeeeeeeeeeeef......................feeeeeeeeeeeeeeeeeeeeeeeeeeee
-    eeeeeeeeeeeeeeeef......................feeeeeeeeeeeeeeeeeeeeeeeeeeee
-    eeeeeeeeeeeeeeeef2222222222222222222222feeeeeeeeeeeeeeeeeeeeeeeeeeee
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999...............
+    .................999ffff.....................ffff9999.............4.
+    ...............b.999ffff.....................ffff9999.............4.
+    77777777777777777777ffff..................b.cffff7777377777777777777
+    eeeeeeeeeeeeeeeeeeeeffff..3cccc.......ccccc..ffffeeeeeeeeeeeeeeeeeee
+    eeeeeeeeeeeeeeeeeeeeffff........ccccc........ffffeeeeeeeeeeeeeeeeeee
+    eeeeeeeeeeeeeeeeeeeeffff.....................ffffeeeeeeeeeeeeeeeeeee
+    eeeeeeeeeeeeeeeeeeeeffff.....................ffffeeeeeeeeeeeeeeeeeee
+    eeeeeeeeeeeeeeeeeeeeffff222222222222222222222ffffeeeeeeeeeeeeeeeeeee
 """))
 scene.set_tile(7, img("""
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
@@ -79,7 +79,96 @@ scene.set_tile(7, img("""
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
 """), True)
-
+scene.set_tile(11, img("""
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+    b b b b b b b b b b b b b b b b
+"""), True)
+scene.set_tile(9, img("""
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
+"""), True)
+scene.set_tile(3, img("""
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+"""), True)
+scene.set_tile(12, img("""
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c c c c c c
+"""), True)
+scene.set_tile(2, img("""
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+"""), True)
 #jumping
 doublejump = True 
 skeleton.ay = 100
@@ -94,4 +183,9 @@ def on_update():
     global doublejump
     if skeleton.is_hitting_tile(CollisionDirection.BOTTOM):
         doublejump = True
+    if skeleton.is_hitting_tile(CollisionDirection.RIGHT):
+        if skeleton.x < 400:
+            skeleton.set_position(420, 160)
+        else: 
+            skeleton.set_position(850, 140)
 game.on_update(on_update)
