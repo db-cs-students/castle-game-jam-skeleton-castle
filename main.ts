@@ -42,12 +42,12 @@ let skeleton = sprites.create(img`
     . . . . . . . . . . . . . . . .
 `, SpriteKind.Player)
 skeleton.setPosition(10, 153)
-controller.moveSprite(skeleton, 60, 0)
+controller.moveSprite(skeleton, 60, 60)
 scene.cameraFollowSprite(skeleton)
 scene.setTileMap(img`
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
-    .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
+    .................999ffff.....................ffffffff..3..................ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
@@ -56,7 +56,7 @@ scene.setTileMap(img`
     .................999ffff.......ccc...........ffffffff.....................ffffffff.....................ffff9999.............49..........................................................................
     ...............b.999ffff.....................ffffffff.....................ffffffff.....................ffff9999.............49..........................................................................
     77777777777777777777ffff..................b.cffffffff..................b.cffffffff..................b.cffff777737777777777777777777.....................................................................
-    eeeeeeeeeeeeeeeeeeeeffff..3cccc..........cc..ffffffff..3cccc.......ccccc..ffffffff..3cccc.......ccccc..ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff..3cccc........cccc..ffffffff..ccccc.......ccccc..ffffffff..3cccc.......ccccc..ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff........acccc........ffffffff........acccc........ffffffff........acccc........ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
@@ -206,6 +206,24 @@ scene.setTile(4, img`
     4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
     4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
 `, true)
+scene.setTile(15, img`
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+`, true)
 // jumping
 let doublejump = true
 skeleton.ay = 100
@@ -218,7 +236,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     
 })
 game.onUpdate(function on_update() {
-    //  skeleton.say(str(skeleton.x))
+    //  skeleton.say(str(skeleton.y))
     
     if (skeleton.isHittingTile(CollisionDirection.Bottom)) {
         doublejump = true
@@ -241,7 +259,7 @@ scene.onHitTile(SpriteKind.Player, 11, function teleportation(sprite: Sprite) {
     }
     
     if (450 < skeleton.x && skeleton.x < 850) {
-        skeleton.setPosition(884, 140)
+        skeleton.setPosition(884, 25)
     }
     
 })

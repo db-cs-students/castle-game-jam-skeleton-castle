@@ -41,12 +41,12 @@ skeleton = sprites.create(img("""
     . . . . . . . . . . . . . . . .
 """), SpriteKind.player)
 skeleton.set_position(10, 153)
-controller.move_sprite(skeleton, 60, 0)
+controller.move_sprite(skeleton, 60, 60)
 scene.camera_follow_sprite(skeleton)
 scene.set_tile_map(img("""
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
-    .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
+    .................999ffff.....................ffffffff..3..................ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
@@ -55,7 +55,7 @@ scene.set_tile_map(img("""
     .................999ffff.......ccc...........ffffffff.....................ffffffff.....................ffff9999.............49..........................................................................
     ...............b.999ffff.....................ffffffff.....................ffffffff.....................ffff9999.............49..........................................................................
     77777777777777777777ffff..................b.cffffffff..................b.cffffffff..................b.cffff777737777777777777777777.....................................................................
-    eeeeeeeeeeeeeeeeeeeeffff..3cccc..........cc..ffffffff..3cccc.......ccccc..ffffffff..3cccc.......ccccc..ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff..3cccc........cccc..ffffffff..ccccc.......ccccc..ffffffff..3cccc.......ccccc..ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff........acccc........ffffffff........acccc........ffffffff........acccc........ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
@@ -205,6 +205,24 @@ scene.set_tile(4, img("""
     4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
     4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
 """), True)
+scene.set_tile(15, img("""
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+    f f f f f f f f f f f f f f f f
+"""), True)
 #jumping
 doublejump = True 
 skeleton.ay = 100
@@ -216,7 +234,7 @@ def jump():
 controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
 
 def on_update():
-    # skeleton.say(str(skeleton.x))
+    # skeleton.say(str(skeleton.y))
     global doublejump
     if skeleton.is_hitting_tile(CollisionDirection.BOTTOM):
         doublejump = True
@@ -232,7 +250,7 @@ def teleportation(sprite):
     if 850 < skeleton.x < 1600:
         skeleton.set_position(1350, 140)
     if 450 < skeleton.x < 850:
-        skeleton.set_position(884, 140)
+        skeleton.set_position(884, 25)
         
 scene.on_hit_tile(SpriteKind.player, 11, teleportation)
 
