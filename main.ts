@@ -170,6 +170,24 @@ scene.setTile(2, img`
     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
 `, true)
+scene.setTile(10, img`
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+`, true)
 // jumping
 let doublejump = true
 skeleton.ay = 100
@@ -182,6 +200,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     
 })
 game.onUpdate(function on_update() {
+    skeleton.say("" + skeleton.x)
     
     if (skeleton.isHittingTile(CollisionDirection.Bottom)) {
         doublejump = true
@@ -192,9 +211,19 @@ scene.onHitTile(SpriteKind.Player, 11, function teleportation(sprite: Sprite) {
     if (skeleton.x < 400) {
         skeleton.setPosition(420, 160)
         scene.setBackgroundColor(15)
-    } else {
-        skeleton.setPosition(850, 140)
+    }
+    
+    if (1500 < skeleton.x && skeleton.x < 2000) {
+        skeleton.setPosition(1781, 160)
         scene.setBackgroundColor(9)
+    }
+    
+    if (850 < skeleton.x && skeleton.x < 1600) {
+        skeleton.setPosition(1350, 140)
+    }
+    
+    if (450 < skeleton.x && skeleton.x < 850) {
+        skeleton.setPosition(884, 140)
     }
     
 })

@@ -169,6 +169,24 @@ scene.set_tile(2, img("""
     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
 """), True)
+scene.set_tile(10, img("""
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+    a a a a a a a a a a a a a a a a
+"""), True)
 #jumping
 doublejump = True 
 skeleton.ay = 100
@@ -180,6 +198,7 @@ def jump():
 controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
 
 def on_update():
+    skeleton.say(str(skeleton.x))
     global doublejump
     if skeleton.is_hitting_tile(CollisionDirection.BOTTOM):
         doublejump = True
@@ -189,10 +208,17 @@ def teleportation(sprite):
     if skeleton.x < 400:
         skeleton.set_position(420, 160)
         scene.set_background_color(15)
-    else: 
-        skeleton.set_position(850, 140)
+    if 1500 < skeleton.x < 2000:
+        skeleton.set_position(1781, 160)
         scene.set_background_color(9)
+    if 850 < skeleton.x < 1600:
+        skeleton.set_position(1350, 140)
+    if 450 < skeleton.x < 850:
+        skeleton.set_position(884, 140)
+        
 scene.on_hit_tile(SpriteKind.player, 11, teleportation)
+
+
 
 def Lava(sprite):
     game.over()
