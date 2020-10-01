@@ -55,12 +55,12 @@ scene.setTileMap(img`
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999.............49..........................................................................
     ...............b.999ffff.....................ffffffff.....................ffffffff.....................ffff9999.............49..........................................................................
-    77777777777777777777ffff..................b.cffffffff..................b.cffffffff..................b.cffff7777377777777777777..........................................................................
-    eeeeeeeeeeeeeeeeeeeeffff..3cccc.......ccccc..ffffffff..3cccc.......ccccc..ffffffff..3cccc.......ccccc..ffffeeeeeeeeeeeeeeeeeee..........................................................................
-    eeeeeeeeeeeeeeeeeeeeffff........acccc........ffffffff........acccc........ffffffff........acccc........ffffeeeeeeeeeeeeeeeeeee..........................................................................
-    eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeee..........................................................................
-    eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeee..........................................................................
-    eeeeeeeeeeeeeeeeeeeeffff222222222222222222222ffffffff222222222222222222222ffffffff222222222222222222222ffffeeeeeeeeeeeeeeeeeee..........................................................................
+    77777777777777777777ffff..................b.cffffffff..................b.cffffffff..................b.cffff777737777777777777777777.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff..3cccc.......ccccc..ffffffff..3cccc.......ccccc..ffffffff..3cccc.......ccccc..ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff........acccc........ffffffff........acccc........ffffffff........acccc........ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff222222222222222222222ffffffff222222222222222222222ffffffff222222222222222222222ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
 `)
 scene.setTile(7, img`
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
@@ -188,6 +188,24 @@ scene.setTile(10, img`
     a a a a a a a a a a a a a a a a
     a a a a a a a a a a a a a a a a
 `, true)
+scene.setTile(4, img`
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+`, true)
 // jumping
 let doublejump = true
 skeleton.ay = 100
@@ -228,8 +246,8 @@ scene.onHitTile(SpriteKind.Player, 11, function teleportation(sprite: Sprite) {
     
 })
 scene.onHitTile(SpriteKind.Player, 2, function Lava(sprite: Sprite) {
-    game.over()
+    game.over(false)
 })
 scene.onHitTile(SpriteKind.Player, 4, function castle(sprite: Sprite) {
-    game.over()
+    game.over(true)
 })
