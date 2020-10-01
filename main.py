@@ -41,7 +41,7 @@ skeleton = sprites.create(img("""
     . . . . . . . . . . . . . . . .
 """), SpriteKind.player)
 skeleton.set_position(10, 153)
-controller.move_sprite(skeleton, 60, 60)
+controller.move_sprite(skeleton, 60, 0)
 scene.camera_follow_sprite(skeleton)
 scene.set_tile_map(img("""
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
@@ -59,7 +59,7 @@ scene.set_tile_map(img("""
     eeeeeeeeeeeeeeeeeeeeffff........acccc........ffffffff........acccc........ffffffff........acccc........ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
-    eeeeeeeeeeeeeeeeeeeeffff222222222222222222222ffffffff222222222222222222222ffffffff222222222222222222222ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeee222222222222222222222222222222222222222222222222222222222222222222222222222222222222222eeeeeeeeeeeeeeeeeeeeeeee.....................................................................
 """))
 scene.set_tile(7, img("""
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
@@ -225,11 +225,11 @@ scene.set_tile(15, img("""
 """), True)
 #jumping
 doublejump = True 
-skeleton.ay = 100
+skeleton.ay = 200
 def jump():
     global doublejump
     if doublejump:
-        skeleton.vy = -60
+        skeleton.vy = -125
         doublejump = skeleton.is_hitting_tile(CollisionDirection.BOTTOM)
 controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
 

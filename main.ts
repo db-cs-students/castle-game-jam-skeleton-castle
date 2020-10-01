@@ -42,7 +42,7 @@ let skeleton = sprites.create(img`
     . . . . . . . . . . . . . . . .
 `, SpriteKind.Player)
 skeleton.setPosition(10, 153)
-controller.moveSprite(skeleton, 60, 60)
+controller.moveSprite(skeleton, 60, 0)
 scene.cameraFollowSprite(skeleton)
 scene.setTileMap(img`
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
@@ -60,7 +60,7 @@ scene.setTileMap(img`
     eeeeeeeeeeeeeeeeeeeeffff........acccc........ffffffff........acccc........ffffffff........acccc........ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
-    eeeeeeeeeeeeeeeeeeeeffff222222222222222222222ffffffff222222222222222222222ffffffff222222222222222222222ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeee222222222222222222222222222222222222222222222222222222222222222222222222222222222222222eeeeeeeeeeeeeeeeeeeeeeee.....................................................................
 `)
 scene.setTile(7, img`
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
@@ -226,11 +226,11 @@ scene.setTile(15, img`
 `, true)
 // jumping
 let doublejump = true
-skeleton.ay = 100
+skeleton.ay = 200
 controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     
     if (doublejump) {
-        skeleton.vy = -60
+        skeleton.vy = -125
         doublejump = skeleton.isHittingTile(CollisionDirection.Bottom)
     }
     
