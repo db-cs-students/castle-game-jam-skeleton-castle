@@ -1,3 +1,4 @@
+let human: Sprite;
 /** 
 Title: Go Home
 Creators: Emily and Jaydah
@@ -5,27 +6,6 @@ Description: Skeleton avoids humans trying to get home
 
  */
 scene.setBackgroundColor(9)
-let human = sprites.create(img`
-    . . . . . . . . . . . . . . . .
-    . . . . 5 5 5 5 5 . . . . . . .
-    . . . . 5 d d d 5 . . . . . . .
-    . . . . d f d f d . . . . . . .
-    . . . . d d d d d . . . . . . .
-    . . f f f f f f f f f . . . . .
-    . . d d f f f f f d d . . . . .
-    . . d d f f f f f d d . . . . .
-    . . d d f f f f f d d . . . . .
-    . . d d f f f f f d d . . . . .
-    . . . . 8 9 8 9 8 . . . . . . .
-    . . . . 9 8 8 8 9 . . . . . . .
-    . . . . 8 8 8 8 8 . . . . . . .
-    . . . . 8 8 . 8 8 . . . . . . .
-    . . . . 9 9 . 9 9 . . . . . . .
-    . . . . d d . d d . . . . . . .
-`, SpriteKind.Enemy)
-human.setPosition(520, 184)
-human.vx = -10
-human.setFlag(SpriteFlag.BounceOnWall, true)
 game.splash("Get to the castle")
 let skeleton = sprites.create(img`
     . . . . 1 1 1 1 1 . . . . . . .
@@ -63,7 +43,7 @@ scene.setTileMap(img`
     eeeeeeeeeeeeeeeeeeeeffff..3cccc.ca...c.cccc..ffffffffcccc...c...ac.....c..ffffffff..3cccc.c.a.c.ccccc..ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff........ccccc........ffffffff........ccccc.......cffffffff........ccccc........ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
-    eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff...............cc..ccffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff............3........ffffffff...............cc..ccffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeee222222222222222222222222222222222222222222222222222222222222222222222222222222222222222eeeeeeeeeeeeeeeeeeeeeeee.....................................................................
 `)
 scene.setTile(7, img`
@@ -228,7 +208,32 @@ scene.setTile(15, img`
     f f f f f f f f f f f f f f f f
     f f f f f f f f f f f f f f f f
 `, true)
-scene.placeOnRandomTile(human, 10)
+let locations = [tiles.getTileLocation(33, 11), tiles.getTileLocation(64, 11), tiles.getTileLocation(92, 11)]
+for (let i = 0; i < locations.length; i++) {
+    human = sprites.create(img`
+        . . . . . . . . . . . . . . . .
+        . . . . 5 5 5 5 5 . . . . . . .
+        . . . . 5 d d d 5 . . . . . . .
+        . . . . d f d f d . . . . . . .
+        . . . . d d d d d . . . . . . .
+        . . f f f f f f f f f . . . . .
+        . . d d f f f f f d d . . . . .
+        . . d d f f f f f d d . . . . .
+        . . d d f f f f f d d . . . . .
+        . . d d f f f f f d d . . . . .
+        . . . . 8 9 8 9 8 . . . . . . .
+        . . . . 9 8 8 8 9 . . . . . . .
+        . . . . 8 8 8 8 8 . . . . . . .
+        . . . . 8 8 . 8 8 . . . . . . .
+        . . . . 9 9 . 9 9 . . . . . . .
+        . . . . d d . d d . . . . . . .
+    `, SpriteKind.Enemy)
+    human.setFlag(SpriteFlag.BounceOnWall, true)
+    //  human.set_position(520, 184)
+    human.vx = -10
+    //  scene.place_on_random_tile(human, 10)
+    tiles.placeOnTile(human, locations[i])
+}
 // jumping
 let doublejump = true
 skeleton.ay = 200
@@ -241,7 +246,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     
 })
 game.onUpdate(function on_update() {
-    skeleton.say("" + skeleton.x)
+    //  skeleton.say(str(skeleton.x))
     
     if (skeleton.isHittingTile(CollisionDirection.Bottom)) {
         doublejump = true

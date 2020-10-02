@@ -4,27 +4,6 @@ Creators: Emily and Jaydah
 Description: Skeleton avoids humans trying to get home
 """
 scene.set_background_color(9)
-human = sprites.create(img("""
-    . . . . . . . . . . . . . . . .
-    . . . . 5 5 5 5 5 . . . . . . .
-    . . . . 5 d d d 5 . . . . . . .
-    . . . . d f d f d . . . . . . .
-    . . . . d d d d d . . . . . . .
-    . . f f f f f f f f f . . . . .
-    . . d d f f f f f d d . . . . .
-    . . d d f f f f f d d . . . . .
-    . . d d f f f f f d d . . . . .
-    . . d d f f f f f d d . . . . .
-    . . . . 8 9 8 9 8 . . . . . . .
-    . . . . 9 8 8 8 9 . . . . . . .
-    . . . . 8 8 8 8 8 . . . . . . .
-    . . . . 8 8 . 8 8 . . . . . . .
-    . . . . 9 9 . 9 9 . . . . . . .
-    . . . . d d . d d . . . . . . .
-"""), SpriteKind.enemy)
-human.set_position(520, 184)
-human.vx = -10
-human.set_flag(SpriteFlag.BOUNCE_ON_WALL, True)
 game.splash("Get to the castle")
 skeleton = sprites.create(img("""
     . . . . 1 1 1 1 1 . . . . . . .
@@ -62,7 +41,7 @@ scene.set_tile_map(img("""
     eeeeeeeeeeeeeeeeeeeeffff..3cccc.ca...c.cccc..ffffffffcccc...c...ac.....c..ffffffff..3cccc.c.a.c.ccccc..ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff........ccccc........ffffffff........ccccc.......cffffffff........ccccc........ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
-    eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff...............cc..ccffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff............3........ffffffff...............cc..ccffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeee222222222222222222222222222222222222222222222222222222222222222222222222222222222222222eeeeeeeeeeeeeeeeeeeeeeee.....................................................................
 """))
 scene.set_tile(7, img("""
@@ -228,9 +207,35 @@ scene.set_tile(15, img("""
     f f f f f f f f f f f f f f f f
 """), True)
 
-
-scene.place_on_random_tile(human, 10)
-
+locations = [
+    tiles.get_tile_location(33, 11),
+    tiles.get_tile_location(64, 11),
+    tiles.get_tile_location(92, 11)
+]
+for i in range(len(locations)):
+    human = sprites.create(img("""
+        . . . . . . . . . . . . . . . .
+        . . . . 5 5 5 5 5 . . . . . . .
+        . . . . 5 d d d 5 . . . . . . .
+        . . . . d f d f d . . . . . . .
+        . . . . d d d d d . . . . . . .
+        . . f f f f f f f f f . . . . .
+        . . d d f f f f f d d . . . . .
+        . . d d f f f f f d d . . . . .
+        . . d d f f f f f d d . . . . .
+        . . d d f f f f f d d . . . . .
+        . . . . 8 9 8 9 8 . . . . . . .
+        . . . . 9 8 8 8 9 . . . . . . .
+        . . . . 8 8 8 8 8 . . . . . . .
+        . . . . 8 8 . 8 8 . . . . . . .
+        . . . . 9 9 . 9 9 . . . . . . .
+        . . . . d d . d d . . . . . . .
+    """), SpriteKind.enemy)
+    human.set_flag(SpriteFlag.BOUNCE_ON_WALL, True)
+    # human.set_position(520, 184)
+    human.vx = -10
+    # scene.place_on_random_tile(human, 10)
+    tiles.place_on_tile(human, locations[i])
 #jumping
 doublejump = True 
 skeleton.ay = 200
@@ -242,7 +247,7 @@ def jump():
 controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
 
 def on_update():
-    skeleton.say(str(skeleton.x))
+    # skeleton.say(str(skeleton.x))
     global doublejump
     if skeleton.is_hitting_tile(CollisionDirection.BOTTOM):
         doublejump = True
