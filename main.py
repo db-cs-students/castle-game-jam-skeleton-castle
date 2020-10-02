@@ -24,6 +24,7 @@ human = sprites.create(img("""
 """), SpriteKind.enemy)
 human.set_position(520, 184)
 human.vx = -10
+human.set_flag(SpriteFlag.BOUNCE_ON_WALL, True)
 game.splash("Get to the castle")
 skeleton = sprites.create(img("""
     . . . . 1 1 1 1 1 . . . . . . .
@@ -47,8 +48,8 @@ skeleton.set_position(10, 153)
 controller.move_sprite(skeleton, 60, 0)
 scene.camera_follow_sprite(skeleton)
 scene.set_tile_map(img("""
-    .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
-    .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
+    .................999ffff.....................ffffffff...c.................ffffffff.....................ffff9999..............9..........................................................................
+    .................999ffff.....................ffffffff...c.................ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff..3...............b..ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff............ccc..ccccffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
@@ -58,8 +59,8 @@ scene.set_tile_map(img("""
     .................999ffff.......ccc...........ffffffff.......c.............ffffffff.....................ffff9999.............49..........................................................................
     ...............b.999ffff.....................ffffffff..............cc.....ffffffff.....................ffff9999.............49..........................................................................
     77777777777777777777ffff...........c......b.cffffffff.....c...........c...ffffffff..................b.cffff777737777777777777777777.....................................................................
-    eeeeeeeeeeeeeeeeeeeeffff..3cccc........cccc..ffffffffcccc..............c..ffffffff..3cccc.......ccccc..ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
-    eeeeeeeeeeeeeeeeeeeeffff........acccc........ffffffff........acccc.......cffffffff........acccc........ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff..3cccc.ca...c.cccc..ffffffffcccc...c...ac.....c..ffffffff..3cccc.c.a.c.ccccc..ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff........ccccc........ffffffff........ccccc.......cffffffff........ccccc........ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff...............cc..ccffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeee222222222222222222222222222222222222222222222222222222222222222222222222222222222222222eeeeeeeeeeeeeeeeeeeeeeee.....................................................................
@@ -173,23 +174,23 @@ scene.set_tile(2, img("""
     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
 """), True)
 scene.set_tile(10, img("""
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-"""), True)
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+"""))
 scene.set_tile(4, img("""
     4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
     4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -226,6 +227,10 @@ scene.set_tile(15, img("""
     f f f f f f f f f f f f f f f f
     f f f f f f f f f f f f f f f f
 """), True)
+
+
+scene.place_on_random_tile(human, 10)
+
 #jumping
 doublejump = True 
 skeleton.ay = 200
@@ -268,9 +273,3 @@ def castle(sprite):
     game.over(True)
 scene.on_hit_tile(SpriteKind.player, 4, castle)
 
-def on_update2():
-    if human.x < 515:
-        human.vx = 10
-    if human.x > 592:
-        human.vx = -10
-game.on_update(on_update2)

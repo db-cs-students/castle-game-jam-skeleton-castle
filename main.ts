@@ -25,6 +25,7 @@ let human = sprites.create(img`
 `, SpriteKind.Enemy)
 human.setPosition(520, 184)
 human.vx = -10
+human.setFlag(SpriteFlag.BounceOnWall, true)
 game.splash("Get to the castle")
 let skeleton = sprites.create(img`
     . . . . 1 1 1 1 1 . . . . . . .
@@ -48,8 +49,8 @@ skeleton.setPosition(10, 153)
 controller.moveSprite(skeleton, 60, 0)
 scene.cameraFollowSprite(skeleton)
 scene.setTileMap(img`
-    .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
-    .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
+    .................999ffff.....................ffffffff...c.................ffffffff.....................ffff9999..............9..........................................................................
+    .................999ffff.....................ffffffff...c.................ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff..3...............b..ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff............ccc..ccccffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
@@ -59,8 +60,8 @@ scene.setTileMap(img`
     .................999ffff.......ccc...........ffffffff.......c.............ffffffff.....................ffff9999.............49..........................................................................
     ...............b.999ffff.....................ffffffff..............cc.....ffffffff.....................ffff9999.............49..........................................................................
     77777777777777777777ffff...........c......b.cffffffff.....c...........c...ffffffff..................b.cffff777737777777777777777777.....................................................................
-    eeeeeeeeeeeeeeeeeeeeffff..3cccc........cccc..ffffffffcccc..............c..ffffffff..3cccc.......ccccc..ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
-    eeeeeeeeeeeeeeeeeeeeffff........acccc........ffffffff........acccc.......cffffffff........acccc........ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff..3cccc.ca...c.cccc..ffffffffcccc...c...ac.....c..ffffffff..3cccc.c.a.c.ccccc..ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff........ccccc........ffffffff........ccccc.......cffffffff........ccccc........ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff...............cc..ccffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeee222222222222222222222222222222222222222222222222222222222222222222222222222222222222222eeeeeeeeeeeeeeeeeeeeeeee.....................................................................
@@ -174,23 +175,23 @@ scene.setTile(2, img`
     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
 `, true)
 scene.setTile(10, img`
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-    a a a a a a a a a a a a a a a a
-`, true)
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+`)
 scene.setTile(4, img`
     4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
     4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
@@ -227,6 +228,7 @@ scene.setTile(15, img`
     f f f f f f f f f f f f f f f f
     f f f f f f f f f f f f f f f f
 `, true)
+scene.placeOnRandomTile(human, 10)
 // jumping
 let doublejump = true
 skeleton.ay = 200
@@ -274,14 +276,4 @@ scene.onHitTile(SpriteKind.Player, 2, function Lava(sprite: Sprite) {
 })
 scene.onHitTile(SpriteKind.Player, 4, function castle(sprite: Sprite) {
     game.over(true)
-})
-game.onUpdate(function on_update2() {
-    if (human.x < 515) {
-        human.vx = 10
-    }
-    
-    if (human.x > 592) {
-        human.vx = -10
-    }
-    
 })
