@@ -30,10 +30,10 @@ controller.moveSprite(skeleton, 60, 0)
 scene.cameraFollowSprite(skeleton)
 scene.setTileMap(img`
     .................999ffff.....................ffffffff...c.................ffffffff.....................ffff9999..............9..........................................................................
-    .................999ffff.....................ffffffff...c.................ffffffff.....................ffff9999..............9..........................................................................
-    .................999ffff.....................ffffffff..3...............b..ffffffff.....................ffff9999..............9..........................................................................
-    .................999ffff.....................ffffffff............ccc..ccccffffffff.....................ffff9999..............9..........................................................................
-    .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
+    .................999ffff.....................ffffffff...c.................ffffffff.....................ffff9999..........11..9..........................................................................
+    .................999ffff.....................ffffffff..3...............b..ffffffff.....................ffff9999.........1111.9..........................................................................
+    .................999ffff.....................ffffffff............ccc..ccccffffffff.....................ffff9999.11...........9..........................................................................
+    .................999ffff.....................ffffffff.....................ffffffff.....................ffff99991111..........9..........................................................................
     ......1...1....1.999ffff.....................ffffffff..........c..........ffffffff.....................ffff9999..............9..........................................................................
     ..1...11.11...11.999ffff.....................ffffffff..........cc.........ffffffff.....................ffff9999..............9..........................................................................
     .1111...11111....999ffff.....................ffffffff.............c.......ffffffff.....................ffff9999..............9..........................................................................
@@ -65,22 +65,22 @@ scene.setTile(7, img`
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
 `, true)
 scene.setTile(11, img`
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
+    . . . . . . . . . . . . . . . .
+    . . . . c c c c c c c . . . . .
+    . . . c f c c f c f c c . . . .
+    . . c f c f f c f c f c c . . .
+    . c f c f f c c c c c f c c . .
+    . c c c f c c f c f f c f c . .
+    . c f c c c f c c c c c c c . .
+    . c c f c f c f c f c f f c . .
+    . c c c f c c c c c f c c c . .
+    . c f c c f f c f c f c f c . .
+    . c c f c c c c c f c c c c . .
+    . . c c f c f f c c f c c . . .
+    . . . c c f c c f c f c . . . .
+    . . . . c c c c c c c . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
 `, true)
 scene.setTile(9, img`
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
@@ -101,39 +101,39 @@ scene.setTile(9, img`
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 `, true)
 scene.setTile(3, img`
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    c c c c c c c c c c c c c c c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c c c c c c c c c c c c c c c
 `, true)
 scene.setTile(12, img`
     c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
     c c c c c c c c c c c c c c c c
 `, true)
 scene.setTile(2, img`
@@ -173,22 +173,46 @@ scene.setTile(10, img`
     . . . . . . . . . . . . . . . .
 `)
 scene.setTile(4, img`
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    ..........bb.....................................bb.........
+    .........bbbb...................................bbbb........
+    ........bbbbbb.................................bbbbbb.......
+    ........bbbbbb.................................bbbbbb.......
+    ........cccccc.................................cccccc.......
+    ........cccccc.................................cccccc.......
+    ........cccccc.................................cccccc.......
+    ........cccccc.................................cccccc.......
+    ........cccccc.................................cccccc.......
+    ........cccccc.................................cccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccbbbbbbbbbcccccccccccccccccccccccbbbbbbbbbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbbbbbbbbbcccccccccccccccccccccccbbbbbbbbbcc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbcbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
 `, true)
 scene.setTile(15, img`
     f f f f f f f f f f f f f f f f

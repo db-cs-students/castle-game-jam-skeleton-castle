@@ -28,10 +28,10 @@ controller.move_sprite(skeleton, 60, 0)
 scene.camera_follow_sprite(skeleton)
 scene.set_tile_map(img("""
     .................999ffff.....................ffffffff...c.................ffffffff.....................ffff9999..............9..........................................................................
-    .................999ffff.....................ffffffff...c.................ffffffff.....................ffff9999..............9..........................................................................
-    .................999ffff.....................ffffffff..3...............b..ffffffff.....................ffff9999..............9..........................................................................
-    .................999ffff.....................ffffffff............ccc..ccccffffffff.....................ffff9999..............9..........................................................................
-    .................999ffff.....................ffffffff.....................ffffffff.....................ffff9999..............9..........................................................................
+    .................999ffff.....................ffffffff...c.................ffffffff.....................ffff9999..........11..9..........................................................................
+    .................999ffff.....................ffffffff..3...............b..ffffffff.....................ffff9999.........1111.9..........................................................................
+    .................999ffff.....................ffffffff............ccc..ccccffffffff.....................ffff9999.11...........9..........................................................................
+    .................999ffff.....................ffffffff.....................ffffffff.....................ffff99991111..........9..........................................................................
     ......1...1....1.999ffff.....................ffffffff..........c..........ffffffff.....................ffff9999..............9..........................................................................
     ..1...11.11...11.999ffff.....................ffffffff..........cc.........ffffffff.....................ffff9999..............9..........................................................................
     .1111...11111....999ffff.....................ffffffff.............c.......ffffffff.....................ffff9999..............9..........................................................................
@@ -63,22 +63,22 @@ scene.set_tile(7, img("""
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
 """), True)
 scene.set_tile(11, img("""
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
-    b b b b b b b b b b b b b b b b
+    . . . . . . . . . . . . . . . .
+    . . . . c c c c c c c . . . . .
+    . . . c f c c f c f c c . . . .
+    . . c f c f f c f c f c c . . .
+    . c f c f f c c c c c f c c . .
+    . c c c f c c f c f f c f c . .
+    . c f c c c f c c c c c c c . .
+    . c c f c f c f c f c f f c . .
+    . c c c f c c c c c f c c c . .
+    . c f c c f f c f c f c f c . .
+    . c c f c c c c c f c c c c . .
+    . . c c f c f f c c f c c . . .
+    . . . c c f c c f c f c . . . .
+    . . . . c c c c c c c . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
 """), True)
 scene.set_tile(9, img("""
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
@@ -99,39 +99,39 @@ scene.set_tile(9, img("""
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 """), True)
 scene.set_tile(3, img("""
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
-    3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+    c c c c c c c c c c c c c c c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c c c c c c c c c c c c c c c
 """), True)
 scene.set_tile(12, img("""
     c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
-    c c c c c c c c c c c c c c c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
+    c c b c b c b c b c b c b c b c
+    c b c b c b c b c b c b c b c c
     c c c c c c c c c c c c c c c c
 """), True)
 scene.set_tile(2, img("""
@@ -171,22 +171,46 @@ scene.set_tile(10, img("""
     . . . . . . . . . . . . . . . .
 """))
 scene.set_tile(4, img("""
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
-    4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+    ..........bb.....................................bb.........
+    .........bbbb...................................bbbb........
+    ........bbbbbb.................................bbbbbb.......
+    ........bbbbbb.................................bbbbbb.......
+    ........cccccc.................................cccccc.......
+    ........cccccc.................................cccccc.......
+    ........cccccc.................................cccccc.......
+    ........cccccc.................................cccccc.......
+    ........cccccc.................................cccccc.......
+    ........cccccc.................................cccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccccccccccccccccccccccccccccccccccccccccccccc.......
+    ........ccbbbbbbbbbcccccccccccccccccccccccbbbbbbbbbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbcccccccbcccccccccccccccccccccccbcccccccbcc.......
+    ........ccbbbbbbbbbcccccccccccccccccccccccbbbbbbbbbcc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbcbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
+    ........cccccccccccccccccccccbbbbbbcccccccccccccccccc.......
 """), True)
 scene.set_tile(15, img("""
     f f f f f f f f f f f f f f f f
