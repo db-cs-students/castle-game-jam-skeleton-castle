@@ -282,7 +282,7 @@ def teleportation(sprite):
         skeleton.set_position(420, 160)
         scene.set_background_color(15)
     if 1500 < skeleton.x < 2000:
-        skeleton.set_position(1781, 160)
+        skeleton.set_position(1781, 150)
         scene.set_background_color(9)
     if 850 < skeleton.x < 1600:
         skeleton.set_position(1350, 140)

@@ -284,7 +284,7 @@ scene.onHitTile(SpriteKind.Player, 11, function teleportation(sprite: Sprite) {
     }
     
     if (1500 < skeleton.x && skeleton.x < 2000) {
-        skeleton.setPosition(1781, 160)
+        skeleton.setPosition(1781, 150)
         scene.setBackgroundColor(9)
     }
     
