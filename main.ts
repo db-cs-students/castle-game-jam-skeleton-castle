@@ -68,10 +68,10 @@ let Castle = sprites.create(img`
     ....bbbbbbbbbbbbbbbbbf4e4e4efbbbbbbbbbbbbbbbbb..
     ....bbbbbbbbbbbbbbbbfe4e4e4e4fbbbbbbbbbbbbbbbb..
     ....bbbbbbbbbbbbbbbf4e4e4e4e4efbbbbbbbbbbbbbbb..
-    ....bbbbbbbbbbbbbbfe4e4e4e4e4e4fbbbbbbbbbbbbbb..
-    ....bbbbbbbbbbbbbbfe4e444e4e4e4fbbbbbbbbbbbbbb..
-    ....bbbbbbbbbbbbbbfe4e444e4e4e4fbbbbbbbbbbbbbb..
-    ....ccccccccccccbbfe4e444e4e4e4fbccccccccccccc..
+    ....b7b77bb777bbbbfe4e4e4e4e4e4fbbb7bb77b777b7..
+    ....77775777b77bbbfe4e444e4e4e4fbb7b777577b7577.
+    ....775777757777bbfe4e444e4e4e4fb777577777757b..
+    ....ccccc777ccccbbfe4e444e4e4e4fbcccccc77ccccc..
     ....ccacccccccccbbfe4e4e4e4e444fbccccaacccccac..
     ....cacaccaccaccbbfe4e4e4e4e444fbcacaacaccaccc..
     ....cccccccaacccbbfe4e4e4e4e444fbccccaacccaacc..
