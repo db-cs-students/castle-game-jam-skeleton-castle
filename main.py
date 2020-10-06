@@ -309,6 +309,7 @@ sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_overlap)
 def Lava(sprite):
     game.over(False)
 scene.on_hit_tile(SpriteKind.player, 2, Lava)
+
 def on_overlap2(sprite, otherSprite):
     game.over(True)
 sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_overlap2)
