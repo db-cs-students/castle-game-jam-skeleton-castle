@@ -6,22 +6,22 @@ Description: Skeleton avoids humans trying to get home
 scene.set_background_color(9)
 game.splash("Get to the castle")
 skeleton = sprites.create(img("""
-    . . . . 1 1 1 1 1 . . . . . . .
-    . . . . 1 f 1 f 1 . . . . . . .
-    . . . . 1 1 1 1 1 . . . . . . .
-    . . . . 1 b 1 b 1 . . . . . . .
-    . . . . 1 b 1 b 1 . . . . . . .
-    . . 1 1 1 1 1 1 1 1 1 . . . . .
-    . . 1 b . b b b . b 1 . . . . .
-    . . 1 1 . 1 1 1 . 1 1 . . . . .
-    . . 1 1 . 1 1 1 . 1 1 . . . . .
-    . . . . . 1 1 1 . . . . . . . .
-    . . . . 1 b b b 1 . . . . . . .
-    . . . . 1 b . b 1 . . . . . . .
-    . . . . 1 1 . 1 1 . . . . . . .
-    . . . . 1 1 . 1 1 . . . . . . .
-    . . . . 1 1 . 1 1 . . . . . . .
-    . . . . 1 1 . 1 1 . . . . . . .
+    . . 1 1 1 1 1 . . . . . . . . .
+    . . 1 f 1 f 1 . . . . . . . . .
+    . . 1 1 1 1 1 . . . . . . . . .
+    . . 1 b 1 b 1 . . . . . . . . .
+    . . 1 b 1 b 1 . . . . . . . . .
+    1 1 1 1 1 1 1 1 1 . . . . . . .
+    1 b . b b b . b 1 . . . . . . .
+    1 1 . 1 1 1 . 1 1 . . . . . . .
+    1 1 . 1 1 1 . 1 1 . . . . . . .
+    . . . 1 1 1 . . . . . . . . . .
+    . . 1 b b b 1 . . . . . . . . .
+    . . 1 b . b 1 . . . . . . . . .
+    . . 1 1 . 1 1 . . . . . . . . .
+    . . 1 1 . 1 1 . . . . . . . . .
+    . . 1 1 . 1 1 . . . . . . . . .
+    . . 1 1 . 1 1 . . . . . . . . .
 """), SpriteKind.player)
 skeleton.set_position(10, 153)
 controller.move_sprite(skeleton, 60, 0)
@@ -314,3 +314,44 @@ def on_overlap2(sprite, otherSprite):
     game.over(True)
 sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_overlap2)
 
+def on_event_pressed():
+    skeleton.set_image(img("""
+        . . . . . . 1 1 1 . . . . . . .
+        . . . . . . 1 1 f . . . . . . .
+        . . . . . . 1 1 1 . . . . . . .
+        . . . . . . . b 1 . . . . . . .
+        . . . . . . . b . . . . . . . .
+        . . . . . . 1 1 . . . . . . . .
+        . . . . . . 1 b 1 . . . . . . .
+        . . . . . . 1 b 1 1 . . . . . .
+        . . . . . . 1 1 . . . . . . . .
+        . . . . . . b b . . . . . . . .
+        . . . . . . 1 1 1 . . . . . . .
+        . . . . . . 1 . 1 . . . . . . .
+        . . . . . . 1 . 1 . . . . . . .
+        . . . . . . 1 . 1 . . . . . . .
+        . . . . . . 1 . 1 . . . . . . .
+        . . . . . . 1 . 1 . . . . . . .
+    """))
+controller.right.on_event(ControllerButtonEvent.PRESSED, on_event_pressed)
+
+def on_event_released():
+    skeleton.set_image(img("""
+        . . 1 1 1 1 1 . . . . . . . . .
+        . . 1 f 1 f 1 . . . . . . . . .
+        . . 1 1 1 1 1 . . . . . . . . .
+        . . 1 b 1 b 1 . . . . . . . . .
+        . . 1 b 1 b 1 . . . . . . . . .
+        1 1 1 1 1 1 1 1 1 . . . . . . .
+        1 b . b b b . b 1 . . . . . . .
+        1 1 . 1 1 1 . 1 1 . . . . . . .
+        1 1 . 1 1 1 . 1 1 . . . . . . .
+        . . . 1 1 1 . . . . . . . . . .
+        . . 1 b b b 1 . . . . . . . . .
+        . . 1 b . b 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+    """))
+controller.right.on_event(ControllerButtonEvent.RELEASED, on_event_released)

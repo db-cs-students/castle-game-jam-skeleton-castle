@@ -8,22 +8,22 @@ Description: Skeleton avoids humans trying to get home
 scene.setBackgroundColor(9)
 game.splash("Get to the castle")
 let skeleton = sprites.create(img`
-    . . . . 1 1 1 1 1 . . . . . . .
-    . . . . 1 f 1 f 1 . . . . . . .
-    . . . . 1 1 1 1 1 . . . . . . .
-    . . . . 1 b 1 b 1 . . . . . . .
-    . . . . 1 b 1 b 1 . . . . . . .
-    . . 1 1 1 1 1 1 1 1 1 . . . . .
-    . . 1 b . b b b . b 1 . . . . .
-    . . 1 1 . 1 1 1 . 1 1 . . . . .
-    . . 1 1 . 1 1 1 . 1 1 . . . . .
-    . . . . . 1 1 1 . . . . . . . .
-    . . . . 1 b b b 1 . . . . . . .
-    . . . . 1 b . b 1 . . . . . . .
-    . . . . 1 1 . 1 1 . . . . . . .
-    . . . . 1 1 . 1 1 . . . . . . .
-    . . . . 1 1 . 1 1 . . . . . . .
-    . . . . 1 1 . 1 1 . . . . . . .
+    . . 1 1 1 1 1 . . . . . . . . .
+    . . 1 f 1 f 1 . . . . . . . . .
+    . . 1 1 1 1 1 . . . . . . . . .
+    . . 1 b 1 b 1 . . . . . . . . .
+    . . 1 b 1 b 1 . . . . . . . . .
+    1 1 1 1 1 1 1 1 1 . . . . . . .
+    1 b . b b b . b 1 . . . . . . .
+    1 1 . 1 1 1 . 1 1 . . . . . . .
+    1 1 . 1 1 1 . 1 1 . . . . . . .
+    . . . 1 1 1 . . . . . . . . . .
+    . . 1 b b b 1 . . . . . . . . .
+    . . 1 b . b 1 . . . . . . . . .
+    . . 1 1 . 1 1 . . . . . . . . .
+    . . 1 1 . 1 1 . . . . . . . . .
+    . . 1 1 . 1 1 . . . . . . . . .
+    . . 1 1 . 1 1 . . . . . . . . .
 `, SpriteKind.Player)
 skeleton.setPosition(10, 153)
 controller.moveSprite(skeleton, 60, 0)
@@ -314,4 +314,44 @@ scene.onHitTile(SpriteKind.Player, 2, function Lava(sprite: Sprite) {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function on_overlap2(sprite: Sprite, otherSprite: Sprite) {
     game.over(true)
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function on_event_pressed() {
+    skeleton.setImage(img`
+        . . . . . . 1 1 1 . . . . . . .
+        . . . . . . 1 1 f . . . . . . .
+        . . . . . . 1 1 1 . . . . . . .
+        . . . . . . . b 1 . . . . . . .
+        . . . . . . . b . . . . . . . .
+        . . . . . . 1 1 . . . . . . . .
+        . . . . . . 1 b 1 . . . . . . .
+        . . . . . . 1 b 1 1 . . . . . .
+        . . . . . . 1 1 . . . . . . . .
+        . . . . . . b b . . . . . . . .
+        . . . . . . 1 1 1 . . . . . . .
+        . . . . . . 1 . 1 . . . . . . .
+        . . . . . . 1 . 1 . . . . . . .
+        . . . . . . 1 . 1 . . . . . . .
+        . . . . . . 1 . 1 . . . . . . .
+        . . . . . . 1 . 1 . . . . . . .
+    `)
+})
+controller.right.onEvent(ControllerButtonEvent.Released, function on_event_released() {
+    skeleton.setImage(img`
+        . . 1 1 1 1 1 . . . . . . . . .
+        . . 1 f 1 f 1 . . . . . . . . .
+        . . 1 1 1 1 1 . . . . . . . . .
+        . . 1 b 1 b 1 . . . . . . . . .
+        . . 1 b 1 b 1 . . . . . . . . .
+        1 1 1 1 1 1 1 1 1 . . . . . . .
+        1 b . b b b . b 1 . . . . . . .
+        1 1 . 1 1 1 . 1 1 . . . . . . .
+        1 1 . 1 1 1 . 1 1 . . . . . . .
+        . . . 1 1 1 . . . . . . . . . .
+        . . 1 b b b 1 . . . . . . . . .
+        . . 1 b . b 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+    `)
 })
