@@ -3,6 +3,7 @@ Title: Go Home
 Creators: Emily and Jaydah
 Description: Skeleton avoids humans trying to get home
 """
+#setup/sprites
 scene.set_background_color(9)
 game.splash("Get to the castle")
 info.set_score(0)
@@ -78,6 +79,7 @@ Castle = sprites.create(img("""
     ....ccccccccccccbbfe4e4e4e444e4fbccccccccccccc..
 """), SpriteKind.food)
 Castle.set_position(2000, 140)
+#tilemap
 scene.set_tile_map(img("""
     .................999ffff.....................ffffffff...c.................ffffffff..................c..ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff...c.................ffffffff................ccc..ffff9999..........11..9..........................................................................
@@ -240,6 +242,7 @@ scene.set_tile(15, img("""
     f f f f f f f f f f f f f f f f
     f f f f f f f f f f f f f f f f
 """), True)
+#coins
 coinLocations = [
     tiles.get_tile_location(32, 7),
     tiles.get_tile_location(73, 13),
@@ -265,6 +268,12 @@ for i in range(len(coinLocations)):
         . . . . . . . . . . . . . . . .
     """), SpriteKind.projectile)
     tiles.place_on_tile(coin, coinLocations[i])
+
+def on_overlap3(sprite, otherSprite):
+    info.change_score_by(1)
+    otherSprite.destroy()
+sprites.on_overlap(SpriteKind.player, SpriteKind.projectile, on_overlap3)
+#human locations
 locations = [
     tiles.get_tile_location(33, 11),
     tiles.get_tile_location(64, 11),
@@ -313,7 +322,7 @@ def on_update():
     if skeleton.is_hitting_tile(CollisionDirection.BOTTOM):
         doublejump = True
 game.on_update(on_update)
-
+#moving between levels 
 def teleportation(sprite):
     if skeleton.x < 400:
         skeleton.set_position(420, 160)
@@ -327,7 +336,7 @@ def teleportation(sprite):
     if 450 < skeleton.x < 850:
         skeleton.set_position(884, 25)   
 scene.on_hit_tile(SpriteKind.player, 11, teleportation)
-
+#win/lose
 def on_overlap(sprite, otherSprite):
     game.over()
 sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_overlap)
@@ -339,7 +348,7 @@ scene.on_hit_tile(SpriteKind.player, 2, Lava)
 def on_overlap2(sprite, otherSprite):
     game.over(True)
 sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_overlap2)
-
+# moving left/right
 def on_event_pressed():
     skeleton.set_image(img("""
         . . . . . . 1 1 1 . . . . . . .
@@ -423,8 +432,3 @@ def on_event_released2():
         . . 1 1 . 1 1 . . . . . . . . .
     """))
 controller.left.on_event(ControllerButtonEvent.RELEASED, on_event_released2)
-
-def on_overlap3(sprite, otherSprite):
-    info.change_score_by(1)
-    otherSprite.destroy()
-sprites.on_overlap(SpriteKind.player, SpriteKind.projectile, on_overlap3)

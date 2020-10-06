@@ -7,6 +7,7 @@ Creators: Emily and Jaydah
 Description: Skeleton avoids humans trying to get home
 
  */
+// setup/sprites
 scene.setBackgroundColor(9)
 game.splash("Get to the castle")
 info.setScore(0)
@@ -82,6 +83,7 @@ let Castle = sprites.create(img`
     ....ccccccccccccbbfe4e4e4e444e4fbccccccccccccc..
 `, SpriteKind.Food)
 Castle.setPosition(2000, 140)
+// tilemap
 scene.setTileMap(img`
     .................999ffff.....................ffffffff...c.................ffffffff..................c..ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff...c.................ffffffff................ccc..ffff9999..........11..9..........................................................................
@@ -244,6 +246,7 @@ scene.setTile(15, img`
     f f f f f f f f f f f f f f f f
     f f f f f f f f f f f f f f f f
 `, true)
+// coins
 let coinLocations = [tiles.getTileLocation(32, 7), tiles.getTileLocation(73, 13), tiles.getTileLocation(99, 0)]
 for (i = 0; i < coinLocations.length; i++) {
     coin = sprites.create(img`
@@ -266,6 +269,11 @@ for (i = 0; i < coinLocations.length; i++) {
     `, SpriteKind.Projectile)
     tiles.placeOnTile(coin, coinLocations[i])
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function on_overlap3(sprite: Sprite, otherSprite: Sprite) {
+    info.changeScoreBy(1)
+    otherSprite.destroy()
+})
+// human locations
 let locations = [tiles.getTileLocation(33, 11), tiles.getTileLocation(64, 11), tiles.getTileLocation(58, 4), tiles.getTileLocation(90, 4), tiles.getTileLocation(91, 10), tiles.getTileLocation(96, 6)]
 for (i = 0; i < locations.length; i++) {
     human = sprites.create(img`
@@ -311,6 +319,7 @@ game.onUpdate(function on_update() {
     }
     
 })
+// moving between levels 
 scene.onHitTile(SpriteKind.Player, 11, function teleportation(sprite: Sprite) {
     if (skeleton.x < 400) {
         skeleton.setPosition(420, 160)
@@ -332,6 +341,7 @@ scene.onHitTile(SpriteKind.Player, 11, function teleportation(sprite: Sprite) {
     }
     
 })
+// win/lose
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function on_overlap(sprite: Sprite, otherSprite: Sprite) {
     game.over()
 })
@@ -341,6 +351,7 @@ scene.onHitTile(SpriteKind.Player, 2, function Lava(sprite: Sprite) {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function on_overlap2(sprite: Sprite, otherSprite: Sprite) {
     game.over(true)
 })
+//  moving left/right
 controller.right.onEvent(ControllerButtonEvent.Pressed, function on_event_pressed() {
     skeleton.setImage(img`
         . . . . . . 1 1 1 . . . . . . .
@@ -420,8 +431,4 @@ controller.left.onEvent(ControllerButtonEvent.Released, function on_event_releas
         . . 1 1 . 1 1 . . . . . . . . .
         . . 1 1 . 1 1 . . . . . . . . .
     `)
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function on_overlap3(sprite: Sprite, otherSprite: Sprite) {
-    info.changeScoreBy(1)
-    otherSprite.destroy()
 })
