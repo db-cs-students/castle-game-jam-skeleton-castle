@@ -1,3 +1,5 @@
+let i: number;
+let coin: Sprite;
 let human: Sprite;
 /** 
 Title: Go Home
@@ -81,20 +83,20 @@ let Castle = sprites.create(img`
 `, SpriteKind.Food)
 Castle.setPosition(2000, 140)
 scene.setTileMap(img`
-    .................999ffff.....................ffffffff...c.................ffffffff.................5c..ffff9999..............9..........................................................................
+    .................999ffff.....................ffffffff...c.................ffffffff..................c..ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff...c.................ffffffff................ccc..ffff9999..........11..9..........................................................................
     .................999ffff.....................ffffffff..3...............b..ffffffff.....................ffff9999.........1111.9..........................................................................
     .................999ffff.....................ffffffff............ccc..ccccffffffff............ccc......ffff9999.11...........9..........................................................................
     .................999ffff.....................ffffffff....ca..c............ffffffff.......ca.c..........ffff99991111..........9..........................................................................
     ......1...1....1.999ffff.....................ffffffff....ccccc.c..........ffffffff....c..cccc..........ffff9999..............9..........................................................................
     ..1...11.11...11.999ffff.....................ffffffff..........cc.........ffffffff.............ca.c....ffff9999..............9..........................................................................
-    .1111...11111....999ffff........5............ffffffff.............c.......ffffffff.....c.......cccc....ffff9999..............9..........................................................................
+    .1111...11111....999ffff.....................ffffffff.............c.......ffffffff.....c.......cccc....ffff9999..............9..........................................................................
     .................999ffff.......ccc...........ffffffff.......c.............ffffffff.....................ffff9999..............9..........................................................................
     ...............b.999ffff.....................ffffffff..............cc.....ffffffff....cc..........cc...ffff9999..............9..........................................................................
     77777777777777777777ffff...........c......b.cffffffff.....c...........c...ffffffff........ca.c.........ffff777737777777777777777777.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff..3cccc.ca...c.cccc..ffffffffcccc...c...ac.....c..ffffffff.c3c....cccc.cc......ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff........ccccc........ffffffff........ccccc.......cffffffff................cc..bffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
-    eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff....................5ffffffff...................ccffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff...................ccffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff............3........ffffffff...............cc..ccffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeee222222222222222222222222222222222222222222222222222222222222222222222222222222222222222eeeeeeeeeeeeeeeeeeeeeeee.....................................................................
 `)
@@ -242,8 +244,30 @@ scene.setTile(15, img`
     f f f f f f f f f f f f f f f f
     f f f f f f f f f f f f f f f f
 `, true)
+let coinLocations = [tiles.getTileLocation(32, 7), tiles.getTileLocation(73, 13), tiles.getTileLocation(99, 0)]
+for (i = 0; i < coinLocations.length; i++) {
+    coin = sprites.create(img`
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . 5 5 5 5 5 5 5 4 . . . .
+        . . . 5 5 5 5 5 5 5 5 5 4 . . .
+        . . . 5 5 5 5 4 5 5 5 5 4 . . .
+        . . . 5 5 5 4 4 5 5 5 5 4 . . .
+        . . . 5 5 5 5 4 5 5 5 5 4 . . .
+        . . . 5 5 5 5 4 5 5 5 5 4 . . .
+        . . . 5 5 5 4 4 4 5 5 5 4 . . .
+        . . . 5 5 5 5 5 5 5 5 5 4 . . .
+        . . . . 5 5 5 5 5 5 5 4 . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+    `, SpriteKind.Projectile)
+    tiles.placeOnTile(coin, coinLocations[i])
+}
 let locations = [tiles.getTileLocation(33, 11), tiles.getTileLocation(64, 11), tiles.getTileLocation(58, 4), tiles.getTileLocation(90, 4), tiles.getTileLocation(91, 10), tiles.getTileLocation(96, 6)]
-for (let i = 0; i < locations.length; i++) {
+for (i = 0; i < locations.length; i++) {
     human = sprites.create(img`
         . . . . . . . . . . . . . . . .
         . . . . 5 5 5 5 5 . . . . . . .
@@ -396,4 +420,8 @@ controller.left.onEvent(ControllerButtonEvent.Released, function on_event_releas
         . . 1 1 . 1 1 . . . . . . . . .
         . . 1 1 . 1 1 . . . . . . . . .
     `)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function on_overlap3(sprite: Sprite, otherSprite: Sprite) {
+    info.changeScoreBy(1)
+    otherSprite.destroy()
 })
