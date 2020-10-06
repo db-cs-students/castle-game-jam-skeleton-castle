@@ -29,54 +29,54 @@ skeleton.setPosition(10, 153)
 controller.moveSprite(skeleton, 60, 0)
 scene.cameraFollowSprite(skeleton)
 let Castle = sprites.create(img`
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
-    444444444444444444444444444444444444444444444444
+    ................................................
+    ................................................
+    ................................................
+    ................................................
+    ................................................
+    .....a......................................a...
+    ....aaa....................................aaa..
+    ....aaa....................................aaa..
+    ...aaaaa..................................aaaaa.
+    ...aaaaa..................................aaaaa.
+    ..aaaaaaa................................aaaaaaa
+    ..aaaaaaa................................aaaaaaa
+    .ccccccccc..............................cccccccc
+    ....ccc....................................ccc..
+    ....bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbfbbbbbbbbbbbbbbbbbbbbbfbbbbbbbbb..
+    ....bbbbbbbbbfffbbbbbbbbbbbbbbbbbbbfffbbbbbbbb..
+    ....bbbbbbbbf1f1fbbbbbbbbbbbbbbbbbf1f1fbbbbbbb..
+    ....bbbbbbbf11f11fbbbbbbbbbbbbbbbf11f11fbbbbbb..
+    ....bbbbbbbf11f11fbbbbbbbbbbbbbbbf11f11fbbbbbb..
+    ....bbbbbbbf11f11fbbbbbbbbbbbbbbbf11f11fbbbbbb..
+    ....bbbbbbbfffffffbbbbbbbbbbbbbbbfffffffbbbbbb..
+    ....bbbbbbbf11f11fbbbbbbbbbbbbbbbf11f11fbbbbbb..
+    ....bbbbbbbf11f11fbbbbbbbbbbbbbbbf11f11fbbbbbb..
+    ....bbbbbbbf11f11fbbbbbbbbbbbbbbbf11f11fbbbbbb..
+    ....bbbbbbbfffffffbbbbbbbbbbbbbbbfffffffbbbbbb..
+    ....bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbbbbbbffffbbbbbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbbbbbfe4e4fbbbbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbbbbf4e4e4efbbbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbbbfe4e4e4e4fbbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbbf4e4e4e4e4efbbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbfe4e4e4e4e4e4fbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbfe4e444e4e4e4fbbbbbbbbbbbbbb..
+    ....bbbbbbbbbbbbbbfe4e444e4e4e4fbbbbbbbbbbbbbb..
+    ....ccccccccccccbbfe4e444e4e4e4fbccccccccccccc..
+    ....ccacccccccccbbfe4e4e4e4e444fbccccaacccccac..
+    ....cacaccaccaccbbfe4e4e4e4e444fbcacaacaccaccc..
+    ....cccccccaacccbbfe4e4e4e4e444fbccccaacccaacc..
+    ....caaaacccacacbbfe4e4e4e4e4e4fbccaaaaacccaac..
+    ....ccccccccccccbbfe4e4e4e444e4fbccccccccccccc..
 `, SpriteKind.Food)
 Castle.setPosition(2000, 140)
 scene.setTileMap(img`
@@ -269,7 +269,7 @@ for (let i = 0; i < locations.length; i++) {
 }
 // jumping
 let doublejump = true
-skeleton.ay = 200
+skeleton.ay = 250
 controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     
     if (doublejump) {
