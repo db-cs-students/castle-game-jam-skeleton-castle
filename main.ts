@@ -304,7 +304,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     
 })
 game.onUpdate(function on_update() {
-    skeleton.say("" + skeleton.x)
+    // skeleton.say(str(skeleton.x))
     
     if (skeleton.isHittingTile(CollisionDirection.Bottom)) {
         doublejump = true

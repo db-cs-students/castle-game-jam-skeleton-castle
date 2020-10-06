@@ -308,7 +308,7 @@ def jump():
 controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
 
 def on_update():
-    skeleton.say(str(skeleton.x))
+    #skeleton.say(str(skeleton.x))
     global doublejump
     if skeleton.is_hitting_tile(CollisionDirection.BOTTOM):
         doublejump = True
