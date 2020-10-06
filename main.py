@@ -293,6 +293,7 @@ def teleportation(sprite):
     if skeleton.x < 400:
         skeleton.set_position(420, 160)
         scene.set_background_color(15)
+        game.splash("Don't let the humans catch you!")
     if 1500 < skeleton.x < 2000:
         skeleton.set_position(1781, 150)
         scene.set_background_color(9)
@@ -355,3 +356,45 @@ def on_event_released():
         . . 1 1 . 1 1 . . . . . . . . .
     """))
 controller.right.on_event(ControllerButtonEvent.RELEASED, on_event_released)
+
+def on_event_pressed2():
+    skeleton.set_image(img("""
+        . . . . . . . 1 1 1 . . . . . .
+        . . . . . . . f 1 1 . . . . . .
+        . . . . . . . 1 1 1 . . . . . .
+        . . . . . . . 1 b . . . . . . .
+        . . . . . . . . b . . . . . . .
+        . . . . . . . . 1 1 . . . . . .
+        . . . . . . . 1 b 1 . . . . . .
+        . . . . . . 1 1 b 1 . . . . . .
+        . . . . . . . . 1 1 . . . . . .
+        . . . . . . . . b b . . . . . .
+        . . . . . . . 1 1 1 . . . . . .
+        . . . . . . . 1 . 1 . . . . . .
+        . . . . . . . 1 . 1 . . . . . .
+        . . . . . . . 1 . 1 . . . . . .
+        . . . . . . . 1 . 1 . . . . . .
+        . . . . . . . 1 . 1 . . . . . .
+    """))
+controller.left.on_event(ControllerButtonEvent.PRESSED, on_event_pressed2)
+
+def on_event_released2():
+    skeleton.set_image(img("""
+        . . 1 1 1 1 1 . . . . . . . . .
+        . . 1 f 1 f 1 . . . . . . . . .
+        . . 1 1 1 1 1 . . . . . . . . .
+        . . 1 b 1 b 1 . . . . . . . . .
+        . . 1 b 1 b 1 . . . . . . . . .
+        1 1 1 1 1 1 1 1 1 . . . . . . .
+        1 b . b b b . b 1 . . . . . . .
+        1 1 . 1 1 1 . 1 1 . . . . . . .
+        1 1 . 1 1 1 . 1 1 . . . . . . .
+        . . . 1 1 1 . . . . . . . . . .
+        . . 1 b b b 1 . . . . . . . . .
+        . . 1 b . b 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+    """))
+controller.left.on_event(ControllerButtonEvent.RELEASED, on_event_released2)

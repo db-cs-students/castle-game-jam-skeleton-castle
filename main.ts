@@ -290,6 +290,7 @@ scene.onHitTile(SpriteKind.Player, 11, function teleportation(sprite: Sprite) {
     if (skeleton.x < 400) {
         skeleton.setPosition(420, 160)
         scene.setBackgroundColor(15)
+        game.splash("Don't let the humans catch you!")
     }
     
     if (1500 < skeleton.x && skeleton.x < 2000) {
@@ -336,6 +337,46 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function on_event_presse
     `)
 })
 controller.right.onEvent(ControllerButtonEvent.Released, function on_event_released() {
+    skeleton.setImage(img`
+        . . 1 1 1 1 1 . . . . . . . . .
+        . . 1 f 1 f 1 . . . . . . . . .
+        . . 1 1 1 1 1 . . . . . . . . .
+        . . 1 b 1 b 1 . . . . . . . . .
+        . . 1 b 1 b 1 . . . . . . . . .
+        1 1 1 1 1 1 1 1 1 . . . . . . .
+        1 b . b b b . b 1 . . . . . . .
+        1 1 . 1 1 1 . 1 1 . . . . . . .
+        1 1 . 1 1 1 . 1 1 . . . . . . .
+        . . . 1 1 1 . . . . . . . . . .
+        . . 1 b b b 1 . . . . . . . . .
+        . . 1 b . b 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+        . . 1 1 . 1 1 . . . . . . . . .
+    `)
+})
+controller.left.onEvent(ControllerButtonEvent.Pressed, function on_event_pressed2() {
+    skeleton.setImage(img`
+        . . . . . . . 1 1 1 . . . . . .
+        . . . . . . . f 1 1 . . . . . .
+        . . . . . . . 1 1 1 . . . . . .
+        . . . . . . . 1 b . . . . . . .
+        . . . . . . . . b . . . . . . .
+        . . . . . . . . 1 1 . . . . . .
+        . . . . . . . 1 b 1 . . . . . .
+        . . . . . . 1 1 b 1 . . . . . .
+        . . . . . . . . 1 1 . . . . . .
+        . . . . . . . . b b . . . . . .
+        . . . . . . . 1 1 1 . . . . . .
+        . . . . . . . 1 . 1 . . . . . .
+        . . . . . . . 1 . 1 . . . . . .
+        . . . . . . . 1 . 1 . . . . . .
+        . . . . . . . 1 . 1 . . . . . .
+        . . . . . . . 1 . 1 . . . . . .
+    `)
+})
+controller.left.onEvent(ControllerButtonEvent.Released, function on_event_released2() {
     skeleton.setImage(img`
         . . 1 1 1 1 1 . . . . . . . . .
         . . 1 f 1 f 1 . . . . . . . . .
