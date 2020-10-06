@@ -295,9 +295,7 @@ for (i = 0; i < locations.length; i++) {
         . . . . d d . d d . . . . . . .
     `, SpriteKind.Enemy)
     human.setFlag(SpriteFlag.BounceOnWall, true)
-    //  human.set_position(520, 184)
     human.vx = -15
-    //  scene.place_on_random_tile(human, 10)
     tiles.placeOnTile(human, locations[i])
 }
 // jumping
@@ -312,7 +310,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     
 })
 game.onUpdate(function on_update() {
-    // skeleton.say(str(skeleton.x))
     
     if (skeleton.isHittingTile(CollisionDirection.Bottom)) {
         doublejump = true

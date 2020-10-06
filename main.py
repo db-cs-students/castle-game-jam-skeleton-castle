@@ -327,9 +327,7 @@ for i in range(len(locations)):
         . . . . d d . d d . . . . . . .
     """), SpriteKind.enemy)
     human.set_flag(SpriteFlag.BOUNCE_ON_WALL, True)
-    # human.set_position(520, 184)
     human.vx = -15
-    # scene.place_on_random_tile(human, 10)
     tiles.place_on_tile(human, locations[i])
 
 #jumping
@@ -346,7 +344,6 @@ def jump():
 controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
 
 def on_update():
-    #skeleton.say(str(skeleton.x))
     global doublejump
     if skeleton.is_hitting_tile(CollisionDirection.BOTTOM):
         doublejump = True
