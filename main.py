@@ -243,7 +243,10 @@ scene.set_tile(15, img("""
 locations = [
     tiles.get_tile_location(33, 11),
     tiles.get_tile_location(64, 11),
-    tiles.get_tile_location(92, 11)
+    tiles.get_tile_location(58, 4),
+    tiles.get_tile_location(90, 4),
+    tiles.get_tile_location(91, 10),
+    tiles.get_tile_location(96, 6)
 ]
 for i in range(len(locations)):
     human = sprites.create(img("""
@@ -266,7 +269,7 @@ for i in range(len(locations)):
     """), SpriteKind.enemy)
     human.set_flag(SpriteFlag.BOUNCE_ON_WALL, True)
     # human.set_position(520, 184)
-    human.vx = -10
+    human.vx = -15
     # scene.place_on_random_tile(human, 10)
     tiles.place_on_tile(human, locations[i])
 #jumping
@@ -280,7 +283,7 @@ def jump():
 controller.A.on_event(ControllerButtonEvent.PRESSED, jump)
 
 def on_update():
-    skeleton.say(str(skeleton.y))
+    #skeleton.say(str(skeleton.y))
     global doublejump
     if skeleton.is_hitting_tile(CollisionDirection.BOTTOM):
         doublejump = True

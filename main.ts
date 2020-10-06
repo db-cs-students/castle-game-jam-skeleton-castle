@@ -241,7 +241,7 @@ scene.setTile(15, img`
     f f f f f f f f f f f f f f f f
     f f f f f f f f f f f f f f f f
 `, true)
-let locations = [tiles.getTileLocation(33, 11), tiles.getTileLocation(64, 11), tiles.getTileLocation(92, 11)]
+let locations = [tiles.getTileLocation(33, 11), tiles.getTileLocation(64, 11), tiles.getTileLocation(58, 4), tiles.getTileLocation(90, 4), tiles.getTileLocation(91, 10), tiles.getTileLocation(96, 6)]
 for (let i = 0; i < locations.length; i++) {
     human = sprites.create(img`
         . . . . . . . . . . . . . . . .
@@ -263,7 +263,7 @@ for (let i = 0; i < locations.length; i++) {
     `, SpriteKind.Enemy)
     human.setFlag(SpriteFlag.BounceOnWall, true)
     //  human.set_position(520, 184)
-    human.vx = -10
+    human.vx = -15
     //  scene.place_on_random_tile(human, 10)
     tiles.placeOnTile(human, locations[i])
 }
@@ -279,7 +279,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function jump() {
     
 })
 game.onUpdate(function on_update() {
-    skeleton.say("" + skeleton.y)
+    // skeleton.say(str(skeleton.y))
     
     if (skeleton.isHittingTile(CollisionDirection.Bottom)) {
         doublejump = true
