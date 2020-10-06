@@ -4,9 +4,13 @@ Creators: Emily and Jaydah
 Description: Skeleton avoids humans trying to get home
 """
 #setup/sprites
+
 scene.set_background_color(9)
+
 game.splash("Get to the castle")
+
 info.set_score(0)
+
 skeleton = sprites.create(img("""
     . . 1 1 1 1 1 . . . . . . . . .
     . . 1 f 1 f 1 . . . . . . . . .
@@ -25,9 +29,13 @@ skeleton = sprites.create(img("""
     . . 1 1 . 1 1 . . . . . . . . .
     . . 1 1 . 1 1 . . . . . . . . .
 """), SpriteKind.player)
+
 skeleton.set_position(10, 153)
+
 controller.move_sprite(skeleton, 60, 0)
+
 scene.camera_follow_sprite(skeleton)
+
 Castle = sprites.create(img("""
     ................................................
     ................................................
@@ -78,8 +86,11 @@ Castle = sprites.create(img("""
     ....caaaacccacacbbfe4e4e4e4e4e4fbccaaaaacccaac..
     ....ccccccccccccbbfe4e4e4e444e4fbccccccccccccc..
 """), SpriteKind.food)
+
 Castle.set_position(2000, 140)
+
 #tilemap
+
 scene.set_tile_map(img("""
     .................999ffff.....................ffffffff...c.................ffffffff..................c..ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff...c.................ffffffff................ccc..ffff9999..........11..9..........................................................................
@@ -98,6 +109,7 @@ scene.set_tile_map(img("""
     eeeeeeeeeeeeeeeeeeeeffff............3........ffffffff...............cc..ccffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeee222222222222222222222222222222222222222222222222222222222222222222222222222222222222222eeeeeeeeeeeeeeeeeeeeeeee.....................................................................
 """))
+
 scene.set_tile(7, img("""
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
@@ -116,6 +128,7 @@ scene.set_tile(7, img("""
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
 """), True)
+
 scene.set_tile(11, img("""
     . . . . . . . . . . . . . . . .
     . . . . c c c c c c c . . . . .
@@ -134,6 +147,7 @@ scene.set_tile(11, img("""
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
 """), True)
+
 scene.set_tile(9, img("""
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
@@ -152,6 +166,7 @@ scene.set_tile(9, img("""
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
     9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 """), True)
+
 scene.set_tile(3, img("""
     c c c c c c c c c c c c c c c c
     c c b c b c b c b c b c b c b c
@@ -170,6 +185,7 @@ scene.set_tile(3, img("""
     c b c b c b c b c b c b c b c c
     c c c c c c c c c c c c c c c c
 """), True)
+
 scene.set_tile(12, img("""
     c c c c c c c c c c c c c c c c
     c c b c b c b c b c b c b c b c
@@ -188,6 +204,7 @@ scene.set_tile(12, img("""
     c b c b c b c b c b c b c b c c
     c c c c c c c c c c c c c c c c
 """), True)
+
 scene.set_tile(2, img("""
     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
@@ -206,6 +223,7 @@ scene.set_tile(2, img("""
     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
     2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
 """), True)
+
 scene.set_tile(10, img("""
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
@@ -224,6 +242,7 @@ scene.set_tile(10, img("""
     . . . . . . . . . . . . . . . .
     . . . . . . . . . . . . . . . .
 """))
+
 scene.set_tile(15, img("""
     f f f f f f f f f f f f f f f f
     f f f f f f f f f f f f f f f f
@@ -242,12 +261,15 @@ scene.set_tile(15, img("""
     f f f f f f f f f f f f f f f f
     f f f f f f f f f f f f f f f f
 """), True)
+
 #coins
+
 coinLocations = [
     tiles.get_tile_location(32, 7),
     tiles.get_tile_location(73, 13),
     tiles.get_tile_location(99, 0)
 ]
+
 for i in range(len(coinLocations)):
     coin = sprites.create(img("""
         . . . . . . . . . . . . . . . .
@@ -273,7 +295,9 @@ def on_overlap3(sprite, otherSprite):
     info.change_score_by(1)
     otherSprite.destroy()
 sprites.on_overlap(SpriteKind.player, SpriteKind.projectile, on_overlap3)
+
 #human locations
+
 locations = [
     tiles.get_tile_location(33, 11),
     tiles.get_tile_location(64, 11),
@@ -282,6 +306,7 @@ locations = [
     tiles.get_tile_location(91, 10),
     tiles.get_tile_location(96, 6)
 ]
+
 for i in range(len(locations)):
     human = sprites.create(img("""
         . . . . . . . . . . . . . . . .
@@ -306,9 +331,13 @@ for i in range(len(locations)):
     human.vx = -15
     # scene.place_on_random_tile(human, 10)
     tiles.place_on_tile(human, locations[i])
+
 #jumping
+
 doublejump = True 
+
 skeleton.ay = 250
+
 def jump():
     global doublejump
     if doublejump:
@@ -322,7 +351,9 @@ def on_update():
     if skeleton.is_hitting_tile(CollisionDirection.BOTTOM):
         doublejump = True
 game.on_update(on_update)
+
 #moving between levels 
+
 def teleportation(sprite):
     if skeleton.x < 400:
         skeleton.set_position(420, 160)
@@ -336,7 +367,9 @@ def teleportation(sprite):
     if 450 < skeleton.x < 850:
         skeleton.set_position(884, 25)   
 scene.on_hit_tile(SpriteKind.player, 11, teleportation)
+
 #win/lose
+
 def on_overlap(sprite, otherSprite):
     game.over()
 sprites.on_overlap(SpriteKind.player, SpriteKind.enemy, on_overlap)
@@ -348,7 +381,9 @@ scene.on_hit_tile(SpriteKind.player, 2, Lava)
 def on_overlap2(sprite, otherSprite):
     game.over(True)
 sprites.on_overlap(SpriteKind.player, SpriteKind.food, on_overlap2)
+
 # moving left/right
+
 def on_event_pressed():
     skeleton.set_image(img("""
         . . . . . . 1 1 1 . . . . . . .
