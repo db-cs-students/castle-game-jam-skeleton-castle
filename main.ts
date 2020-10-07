@@ -7,8 +7,9 @@ Creators: Emily and Jaydah
 Description: Skeleton avoids humans trying to get home
 
  */
+// basic
 info.setLife(1)
-info.startCountdown(42)
+info.startCountdown(45)
 scene.setBackgroundColor(9)
 game.splash("Get to the castle")
 let skeleton = sprites.create(img`
@@ -35,19 +36,19 @@ scene.cameraFollowSprite(skeleton)
 scene.setTileMap(img`
     .................999ffff.....................ffffffff...c.................ffffffff.....................ffff9999..............9..........................................................................
     .................999ffff.....................ffffffff...c.................ffffffff.....................ffff9999..........11..9..........................................................................
-    .................999ffff.....................ffffffff..3c..............b..ffffffff.....................ffff9999.........1111.9..........................................................................
+    .................999ffff.....................ffffffff..3c..............b..ffffffff....................cffff9999.........1111.9..........................................................................
     .................999ffff.....................ffffffff.............c.c.ccccffffffff.....................ffff9999.11...........9..........................................................................
     .................999ffff.....................ffffffff....ca..cc...........ffffffff..............c..cc..ffff99991111..........9..........................................................................
     ......1...1....1.999ffff.....................ffffffff.....ccc..c..c.......ffffffff...........c.........ffff9999..............9..........................................................................
     ..1...11.11...11.999ffff.....................ffffffff...........c.........ffffffff.....................ffff9999..............9..........................................................................
     .1111...11111....999ffff.....................ffffffff.............c.......ffffffff......c..c..c........ffff9999..............9..........................................................................
-    .................999ffff.......ccc...........ffffffff.......c.............ffffffff..............c......ffff9999.............49..........................................................................
-    ...............b.999ffff.....................ffffffff..............c......ffffffff....c................ffff9999.a...........49..........................................................................
+    .................999ffff.......ccc...........ffffffff.......c.............ffffffff..............c......ffff9999..............9..........................................................................
+    ...............b.999ffff.....................ffffffff..............c......ffffffff....c................ffff9999.a............9..........................................................................
     77777777777777777777ffff...........c......b..ffffffff.....c...........c...ffffffff..................b..ffff777737777777777777777777.....................................................................
-    eeeeeeeeeeeeeeeeeeeeffff..3cccc.ca...c.cccc..ffffffffcccc...c...a....c.c..ffffffff..3cccc..ca.c.ccccc..ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff..3cccc.ca...c.cccc..ffffffffcccc...c...a....c....ffffffff..3cccc..ca.c.ccccc..ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff........ccccc........ffffffff........cccccccc....cffffffff.........cccc........ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeeeffff.....................ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
-    eeeeeeeeeeeeeeeeeeeeffff............3........ffffffff...............cc..ccffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
+    eeeeeeeeeeeeeeeeeeeeffff............3........ffffffff.....................ffffffff.....................ffffeeeeeeeeeeeeeeeeeeeeeeee.....................................................................
     eeeeeeeeeeeeeeeeeeee222222222222222222222222222222222222222222222222222222222222222222222222222222222222222eeeeeeeeeeeeeeeeeeeeeeee.....................................................................
 `)
 //  set up castle/house
@@ -93,9 +94,12 @@ let house = sprites.create(img`
     cccccccccfcccccfccccccccc
     cccccccccfcccccfccccccccc
 `, SpriteKind.Food)
-house.setPosition(2000, 135)
+house.setPosition(2000, 140)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function on_overlap2(sprite: Sprite, otherSprite: Sprite) {
+    game.over(true)
+})
 // set up coins 
-let coinLocations = [tiles.getTileLocation(32, 7), tiles.getTileLocation(73, 11), tiles.getTileLocation(57, 3), tiles.getTileLocation(88, 6)]
+let coinLocations = [tiles.getTileLocation(32, 7), tiles.getTileLocation(73, 11), tiles.getTileLocation(57, 3), tiles.getTileLocation(88, 6), tiles.getTileLocation(66, 4)]
 for (i = 0; i < coinLocations.length; i++) {
     coin = sprites.create(img`
         . . . . . . . . . . . . . . . .
@@ -117,28 +121,28 @@ for (i = 0; i < coinLocations.length; i++) {
     `, SpriteKind.Projectile)
     tiles.placeOnTile(coin, coinLocations[i])
 }
-function on_overlap3(sprite: any, otherSprite: any) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function on_overlap3(sprite: Sprite, otherSprite: Sprite) {
     info.changeScoreBy(1)
-    otherSprite
-}
-
+    otherSprite.destroy()
+})
+// tilemap design
 scene.setTile(7, img`
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+    6 7 7 7 6 6 7 7 7 6 6 7 6 7 7 6
+    e 6 7 6 e e 6 7 7 6 e 6 6 7 6 e
+    e e 6 e e e e 6 7 6 e e e 6 e e
+    e e e e e e e e 6 e e e e e e e
+    e e e e e e e e e e e e e e e e
+    e e e e e e e e e e e e e e e e
+    e e e e e e e e e e e e e e e e
+    e e e e e e e e e e e e e e e e
+    e e e e e e e e e e e e e e e e
+    e e e e e e e e e e e e e e e e
+    e e e e e e e e e e e e e e e e
 `, true)
 scene.setTile(11, img`
     . . . . . . . . . . . . . . . .
@@ -213,22 +217,22 @@ scene.setTile(12, img`
     c c c c c c c c c c c c c c c c
 `, true)
 scene.setTile(2, img`
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
-    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+    5 5 2 2 2 2 5 4 5 4 4 5 5 5 5 5
+    5 2 2 2 5 5 4 5 2 5 4 4 4 5 4 4
+    2 2 2 5 4 4 4 2 2 2 5 5 4 4 4 4
+    5 5 5 4 4 5 2 2 2 2 5 4 2 2 2 5
+    4 4 4 4 5 5 2 2 2 2 5 4 2 2 2 5
+    2 2 2 5 4 5 2 5 5 5 5 4 2 2 2 5
+    2 2 2 5 5 4 5 5 4 4 4 4 2 2 5 4
+    2 2 2 2 2 5 4 4 4 5 5 5 2 5 4 4
+    2 2 2 2 2 2 4 2 2 2 5 5 5 5 4 5
+    5 4 4 5 5 2 4 5 2 2 5 4 4 4 4 5
+    4 5 4 4 5 2 4 5 2 2 5 4 5 5 5 2
+    2 4 2 2 4 5 2 4 5 5 4 5 2 2 2 2
+    2 2 4 2 5 4 2 4 4 4 4 5 2 2 2 2
+    2 2 4 2 4 2 2 4 2 2 4 5 5 2 2 2
+    2 4 2 2 5 4 2 4 2 2 4 4 5 2 2 2
+    4 5 2 2 2 5 4 2 2 2 2 4 5 2 2 2
 `, true)
 scene.setTile(10, img`
     . . . . . . . . . . . . . . . .
@@ -266,6 +270,7 @@ scene.setTile(15, img`
     f f f f f f f f f f f f f f f f
     f f f f f f f f f f f f f f f f
 `, true)
+// human/enemy 
 let locations = [tiles.getTileLocation(33, 11), tiles.getTileLocation(64, 11), tiles.getTileLocation(92, 11), tiles.getTileLocation(58, 4)]
 for (i = 0; i < locations.length; i++) {
     human = sprites.create(img`
