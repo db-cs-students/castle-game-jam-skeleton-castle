@@ -3,7 +3,7 @@ let coin: Sprite;
 let human: Sprite;
 /** 
 Title: Go Home
-Creators: Emily and Jaydah
+Creators: Jaydah
 Description: Skeleton avoids humans trying to get home
 
  */

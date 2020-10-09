@@ -1,6 +1,6 @@
 """
 Title: Go Home
-Creators: Emily and Jaydah
+Creators: Jaydah
 Description: Skeleton avoids humans trying to get home
 """
 #basic game layout & skeleton design + features 
